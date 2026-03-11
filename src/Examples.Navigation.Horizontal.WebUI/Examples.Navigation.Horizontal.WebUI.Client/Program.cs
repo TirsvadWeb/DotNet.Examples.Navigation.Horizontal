@@ -1,7 +1,7 @@
 // Copyright (c) 2026 TirsvadWeb. All rights reserved. 
 //  No warranty, explicit or implicit, provided.
 
-using Examples.Navigation.Horizontal.Application;
+using Examples.Navigation.Horizontal.Infrastructure;
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -13,7 +13,7 @@ internal class Program
     {
         WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-        _ = builder.Services.AddApplicationServices();
+        _ = builder.Services.AddInfrastructureServices();
 
         await builder.Build().RunAsync();
     }

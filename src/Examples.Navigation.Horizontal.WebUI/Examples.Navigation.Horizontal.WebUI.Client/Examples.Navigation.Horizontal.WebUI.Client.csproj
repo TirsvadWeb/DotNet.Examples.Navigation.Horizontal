@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Examples.Navigation.Horizontal.Application\Examples.Navigation.Horizontal.Application.csproj" />
+    <ProjectReference Include="..\..\Examples.Navigation.Horizontal.Infrastructure\Examples.Navigation.Horizontal.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
