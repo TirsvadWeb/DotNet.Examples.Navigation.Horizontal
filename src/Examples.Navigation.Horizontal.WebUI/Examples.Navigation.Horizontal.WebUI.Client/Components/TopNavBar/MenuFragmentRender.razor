@@ -1,3 +1,6 @@
+@rendermode InteractiveWebAssembly
+@* @rendermode InteractiveAuto *@
+
 @* Top-level menu item *@
 @if (!HasParent)
 {
@@ -16,22 +19,21 @@
   else
   {
     <li class="nav-item dropdown">
-      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="@GetAriaExpanded(MenuFragment.Id)" @onclick="() => ToggleSubMenu(MenuFragment.Id)">
+      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         @if (HasFontClassEmoji)
         {
           <MenuItemEmoji FontEmoji="@FontClassEmoji" />
         }
         @Title
       </a>
-      <ul class="@GetUlSubMenuCssClass(MenuFragment.Id)">
+      <ul class="dropdown-menu dropend">
         @foreach (var child in MenuFragment.Children!)
         {
-          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" />
+          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" IsNavCollapsed="@IsNavCollapsed" />
         }
       </ul>
     </li>
   }
-
 }
 @* Submenu item *@
 else
@@ -39,17 +41,17 @@ else
   @if (HasChildren)
   {
     <li class="@GetCssClassForLi()">
-      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="@GetAriaExpanded(MenuFragment.Id)" @onmouseover="() => OpenSubMenu(MenuFragment.Id)" @onmouseout="() => CloseSubMenu(MenuFragment.Id)">
+      <a class="@GetCssClassForA()" href="@Link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         @if (HasFontClassEmoji)
         {
           <MenuItemEmoji FontEmoji="@FontClassEmoji" />
         }
         @Title
       </a>
-      <ul class="@GetUlSubMenuCssClass(MenuFragment.Id)">
+      <ul class="dropdown-menu dropend">
         @foreach (var child in MenuFragment.Children!)
         {
-          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" />
+          <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" IsNavCollapsed="@IsNavCollapsed" />
         }
       </ul>
     </li>

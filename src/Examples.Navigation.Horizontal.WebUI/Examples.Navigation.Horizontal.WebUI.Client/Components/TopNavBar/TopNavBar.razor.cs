@@ -8,31 +8,19 @@ using Microsoft.AspNetCore.Components;
 
 namespace Examples.Navigation.Horizontal.WebUI.Client.Components.TopNavBar;
 
-public partial class TopNavBar
+public partial class TopNavBar : ComponentBase
 {
     [Inject]
     private IMenuService MenuService { get; set; } = default!;
 
     private IEnumerable<MenuFragment> _menuItems = [];
 
-    /// <summary>
-    /// Indicates whether the navigation menu is collapsed (for responsive layouts).
-    /// </summary>
-    private bool collapseNavMenu = true;
+    private bool _isNavCollapsed = true;
 
-    /// Gets the CSS class for the navigation bar container, adding 'show' when expanded.
-    /// </summary>
-    private string NavBarCssClass => $"collapse navbar-collapse{(collapseNavMenu ? string.Empty : " show")}";
-
-    /// <summary>
-    /// Gets the CSS class for the navigation toggle button, 'collapsed' when menu is collapsed.
-    /// </summary>
-    private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : string.Empty;
-
-    /// <summary>
-    /// Tracks the set of open submenu IDs to manage their expanded/collapsed state.
-    /// </summary>
-    private readonly HashSet<Guid> openSubmenus = [];
+    private void ToggleNavMenu()
+    {
+        _isNavCollapsed = !_isNavCollapsed;
+    }
 
     /// <summary>
     /// Loads the menu items asynchronously when the component is initialized.
@@ -40,13 +28,5 @@ public partial class TopNavBar
     protected override async Task OnInitializedAsync()
     {
         _menuItems = await MenuService.GetMenuTreeAsync();
-    }
-
-    /// <summary>
-    /// Toggles the collapsed state of the main navigation menu (for mobile/responsive).
-    /// </summary>
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
     }
 }
