@@ -48,7 +48,7 @@ else
         }
         @Title
       </a>
-      <ul class="dropdown-menu dropend">
+      <ul class="dropdown-menu dropend ml-auto">
         @foreach (var child in MenuFragment.Children!)
         {
           <MenuFragmentRender MenuFragment="child" MenuLevel="@(MenuLevel + 1)" IsNavCollapsed="@IsNavCollapsed" />

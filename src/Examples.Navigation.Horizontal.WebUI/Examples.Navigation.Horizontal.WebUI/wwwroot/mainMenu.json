@@ -6,6 +6,7 @@
     {
       "Id": "8fdd56d5-fd85-46cb-9c75-5192aca81dc2",
       "Title": "Home",
+      "FontClassEmoji": "bi bi-house-fill",
       "Url": "/",
       "Order": 1
     },
@@ -54,6 +55,7 @@
     {
       "Id": "65eb3faa-785a-4642-a45c-435103378666",
       "Title": "About",
+      "FontClassEmoji": "bi bi-info-circle-fill",
       "Url": "/about",
       "Order": 3
     }
