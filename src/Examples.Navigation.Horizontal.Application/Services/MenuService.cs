@@ -20,4 +20,9 @@ public class MenuService : IMenuService
     {
         return await _menuRepository.GetAllAsync();
     }
+
+    public Task<IEnumerable<MenuFragment>> GetMenuTreeFromJsonAsync(string jsonFilePath = "mainMenu.json")
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -129,7 +129,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - **main**: The primary branch with the latest stable code.
 - **01-MenuBasedOnJson**: Demonstrates menu structure defined in `navBar.json` for dynamic navigation
 - **02-MenuBasedOnDatabase**: (Planned) Example of menu structure stored in a database with Entity Framework Core.
-- 
 
 <!-- Links Badges -->
 [contributors-shield]: https://img.shields.io/github/contributors/TirsvadWeb/DotNet.Examples.Navigation.Horizontal?style=for-the-badge

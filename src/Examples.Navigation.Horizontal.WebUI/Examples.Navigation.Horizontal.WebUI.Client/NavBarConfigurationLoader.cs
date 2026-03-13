@@ -14,7 +14,7 @@ internal static class NavBarConfigurationLoader
             BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
         };
         _ = builder.Services.AddScoped(sp => http);
-        using HttpResponseMessage response = await http.GetAsync("navBar.json");
+        using HttpResponseMessage response = await http.GetAsync("mainMenu.json");
         using Stream stream = await response.Content.ReadAsStreamAsync();
         _ = builder.Configuration.AddJsonStream(stream);
     }

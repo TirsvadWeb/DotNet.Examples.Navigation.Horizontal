@@ -8,4 +8,6 @@ namespace Examples.Navigation.Horizontal.Application.Interfaces.Services;
 public interface IMenuService
 {
     Task<IEnumerable<MenuFragment>> GetMenuTreeAsync();
+    // get menu tree with all fragments, including nested children, from json file
+    Task<IEnumerable<MenuFragment>> GetMenuTreeFromJsonAsync(string jsonFilePath = "mainMenu.json");
 }
